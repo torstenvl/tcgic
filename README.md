@@ -31,12 +31,12 @@ Usage:
     
 To install this:
 
-# Compile this along with the tcgic.c file into a .cgi file: `cc namedisp.c tcgic.c -o namedisp.cgi`
-# Install the .cgi file on your webserver
-# Ensure the execute permission is set on the .cgi file
-# Ensure the web server is configured to execute .cgi files
-# Ensure the directory is allowed to execute .cgi files
-# Reference this .cgi file in the `action` attribute of your `<form>` tag
+* Compile this along with the tcgic.c file into a .cgi file: `cc namedisp.c tcgic.c -o namedisp.cgi`
+* Install the .cgi file on your webserver
+* Ensure the execute permission is set on the .cgi file
+* Ensure the web server is configured to execute .cgi files
+* Ensure the directory is allowed to execute .cgi files
+* Reference this .cgi file in the `action` attribute of your `<form>` tag
 
 
 
