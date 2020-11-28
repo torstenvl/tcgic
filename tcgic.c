@@ -214,7 +214,7 @@ char *cgi_allvalof(char *valstr, char *s, int index)
 
             // If there's an error, free allocated memory and return error.
             if (curvarval[0]=='\0') {
-                free (retstr)
+                free (retstr);
                 return curvarval;
             }
 
@@ -240,7 +240,7 @@ char *cgi_allvalof(char *valstr, char *s, int index)
         }
 
         if (loc==&tc_memAllocErr) {
-            free(retstr)
+            free(retstr);
             return loc;
         }
 
