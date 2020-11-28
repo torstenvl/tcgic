@@ -213,7 +213,10 @@ char *cgi_allvalof(char *valstr, char *s, int index)
             curvarval = extractvalue(loc);
 
             // If there's an error, free allocated memory and return error.
-            if (curvarval[0]=='\0') free (retstr) && return curvarval;
+            if (curvarval[0]=='\0') {
+                free (retstr)
+                return curvarval;
+            }
 
             // New length sufficient for s + ", " + s_addition
             nstr_ln = strlen(retstr) + 2 + strlen(curvarval);
@@ -236,7 +239,10 @@ char *cgi_allvalof(char *valstr, char *s, int index)
             loc = findvalue(locinvalstr, s);
         }
 
-        if (loc==&tc_memAllocErr) free(retstr) && return loc;
+        if (loc==&tc_memAllocErr) {
+            free(retstr)
+            return loc;
+        }
 
         return retstr;
     }
@@ -263,7 +269,7 @@ char *extractvalue(char *p)
     size_t hexcount = 0;
 
     /* By internal convention, a null zero at [0] means an error. Return the same. */
-    if (p[0]=='\0') return loc;
+    if (p[0]=='\0') return p;
 
 
     /* Count bytes until we reach the end of the value, keeping track of the
@@ -295,13 +301,13 @@ char *extractvalue(char *p)
 
         /* Translate hex codes to bytes */
         else if (p[i] == '%') {
-            newstring[j] = (char)16 * (strchr(numerals, p[++i]) - numerals) +
-                (strchr(numerals, p[++i]) - numerals);
+            newstring[j] = (char)16 * (strchr(numerals, p[++i]) - numerals);
+            newstring[j] += (strchr(numerals, p[++i]) - numerals);
             i++;
         }
 
         else {
-            newsting[j++] = p[i++];
+            newstring[j++] = p[i++];
         }
     }
 
