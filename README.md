@@ -4,6 +4,8 @@ Torsten's CGI in C Library
 
 This is a simple library that makes writing CGI in C very easy. 
 
+Only GET and POST methods with encoding type application/x-www-form-urlencoded is supported.  This library will not work with multipart encodings, and so is not suitable to applications requiring file upload capability. 
+
 Usage:
 
     #include <stdio.h>
@@ -37,9 +39,3 @@ To install this:
 * Ensure the web server is configured to execute .cgi files
 * Ensure the directory is allowed to execute .cgi files
 * Reference this .cgi file in the `action` attribute of your `<form>` tag
-
-
-
-
-
-
