@@ -23,7 +23,7 @@ Usage:
         <h1>Hello, %s!</h1>\n\
       <body>\n\
     </html>\n",
-    username);
+    name);
     
       free(name);
       free(cgi);
